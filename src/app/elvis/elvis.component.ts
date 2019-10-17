@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HelperService } from '../helper.service';
 //import {ElvisComponent} from './elvis.component.spec';
 
 @Component({
@@ -10,14 +11,18 @@ export class ElvisComponent implements OnInit {
   age:number = 15;
 @Input() nick: string;
 
-  constructor() { }
+  constructor(private helper:HelperService) { }
 
   ngOnInit() {
     console.log(this.nick);
   }
   
   haveBday(){
-    this.age++;
+    console.log('jlshlkjdls');
+    this.helper.getVotes()
+    .subscribe((data)=> {
+    //debugger
+    this.age = data['total']+ this.age})
   }
 
 }
