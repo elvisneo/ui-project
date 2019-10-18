@@ -9,6 +9,7 @@ import { HelperService } from '../helper.service';
 })
 export class ElvisComponent implements OnInit {
   age:number = 15;
+  isShy : boolean = true;
 @Input() nick: string;
 
   constructor(private helper:HelperService) { }
@@ -18,11 +19,13 @@ export class ElvisComponent implements OnInit {
   }
   
   haveBday(){
-    console.log('jlshlkjdls');
-    this.helper.getVotes()
+    this.age++;
+    this.isShy= !(this.age >= 30)
+    /*this.helper.getVotes()
     .subscribe((data)=> {
     //debugger
-    this.age = data['total']+ this.age})
+    this.age = data['total']+ this.age})*/
   }
+
 
 }

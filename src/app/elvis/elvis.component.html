@@ -1,2 +1,4 @@
-<p>elvis is {{age}}years old</p>
+<p>elvis is 
+   <span *ngIf="isShy"> {{age}} </span>
+    years old</p>
 <button (click)="haveBday(age)">Get old</button>
